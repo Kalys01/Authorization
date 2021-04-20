@@ -11,6 +11,22 @@ import EmptyLayout from '@/layouts/EmptyLayout'
 import MainLayout from '@/layouts/MainLayout'
 
 export default {
+  name: {},
+  components: {
+    EmptyLayout,
+    MainLayout
+  },
+  data() {
+    return {
+
+    }
+  },
+  computed: {
+    layout() {
+      //console.log(this.$route.meta.layout)
+      return (this.$route.meta.layout || 'empty') + '-layout'
+    }
+  },
   methods: {
     setLocale: function(locale) {
       // this.$i18n.locale = locale
@@ -20,16 +36,6 @@ export default {
       })
     }
   },
-  computed: {
-    layout() {
-      //console.log(this.$route.meta.layout)
-      return (this.$route.meta.layout || 'empty') + '-layout'
-    }
-  },
-  components: {
-    EmptyLayout,
-    MainLayout
-  }
 }
 </script>
 
