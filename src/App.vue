@@ -11,15 +11,9 @@ import EmptyLayout from '@/layouts/EmptyLayout'
 import MainLayout from '@/layouts/MainLayout'
 
 export default {
-  name: {},
   components: {
     EmptyLayout,
     MainLayout
-  },
-  data() {
-    return {
-
-    }
   },
   computed: {
     layout() {
