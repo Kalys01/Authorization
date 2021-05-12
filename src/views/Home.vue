@@ -1,22 +1,25 @@
 <template>
   <div class="home">
-    <!-- <h1>{{$t('message')}}</h1> -->
-    <h1>This is a home page</h1>
-    <div id="nav">
-      <!-- <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> -->
-      
+    <div class="nav">
+      <div class="data-time">
+        <span class="data">{{ date | date('date') }}</span> | <span class="time">{{ date | date('time') }}</span>
+      </div>
       <div class="lang">
         <a href="#" @click="setLocale('ru')">рус</a> |
         <a href="#" @click="setLocale('en')">eng</a>
-        <button class="btn sign-up" >Войти</button>
+        <button class="btn sign-up" @click="$router.push({name: 'login'})">Войти</button>
       </div>
     </div>
+    
   </div>
 </template>
 
 <script>
 export default {
+  data: () => ({
+    date: new Date(),
+    interval: null,
+  }),
   methods: {
     setLocale: function(locale) {
       // this.$i18n.locale = locale
@@ -25,12 +28,26 @@ export default {
         this.$i18n.locale = locale
       })
     }
+  },
+  mounted() {
+    this.interval = setInterval(() => {
+      this.date = new Date()
+    }, 1000)
+  },
+  beforeDestroy() {
+    clearInterval(this.interval)
   }
 }
 </script>
 
 <style lang="scss" scoped>
-#nav {
+.nav {
+  width: 100%;
+  height: 60px;
+  background: grey;
+  position: relative;
+  display: flex;
+  align-items: center;
   a {
     font-weight: bold;
     color: #2c3e50;
@@ -50,7 +67,6 @@ export default {
 .lang {
   position: absolute;
   right: 30px;
-  top: 30px;
 }
 .sign-up {
   margin: 0 0 0 5px;
