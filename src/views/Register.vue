@@ -2,19 +2,73 @@
   <div class="login">
     <form class="login-box" @submit.prevent="submitHandler">
       <h1 class="login">Register</h1>
-      <div class="textbox">
-        <input class="" type="text" placeholder="Name">
+      <div 
+        :class="{invalid: $v.email.$dirty && !$v.email.required}"
+        class="textbox"
+      >
+        <input
+          v-model.trim="name" 
+          type="text"
+          placeholder="Name"
+        >
       </div>
-      <small class="small-error-text">пожалуйста введите Name</small>
-      <div class="textbox">
-        <input class="" type="email" placeholder="email">
+      <small
+        v-if="($v.name.$dirty && !$v.name.required)"
+        class="small-error-text"
+      >
+        Введите Имя
+      </small>
+      <div
+        :class="{invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email)}"
+        class="textbox"
+      >
+        <input
+          v-model.trim="email"
+          type="email"
+          placeholder="Email"
+        >
       </div>
-      <small class="small-error-text">пожалуйста введите email</small>
-      <div class="textbox">
-        <input class="" type="password" placeholder="Password">
+      <small
+        v-if="($v.email.$dirty && !$v.email.required)"
+        class="small-error-text"
+      >
+        Введите Email
+      </small>
+      <small
+        v-else-if="($v.email.$dirty && !$v.email.email)"
+        class="small-error-text"
+      >
+        Введите корректный Email
+      </small>
+      <div
+        :class="{invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength)}" 
+        class="textbox"
+      >
+        <input
+          v-model.trim="password"
+          type="password"
+          placeholder="Password"
+        >
       </div>
-      <small class="small-error-text">пожалуйста введите Password</small>
-      <button class="btn">Register</button>
+      <small
+        v-if="$v.password.$dirty && !$v.password.required"
+        class="small-error-text"
+      >
+        Введите пароль
+      </small>
+      <small
+        v-else-if="$v.password.$dirty && !$v.password.minLength"
+        class="small-error-text"
+      >
+        Dлина пароля должно быть минимум {{ $v.password.$params.minLength.min }} символов.<br/>
+        Сейчас длина {{ password.length }}
+      </small>
+      <button
+        class="btn"
+        type="submit"
+      >
+        Register
+      </button>
       <p>Уже есть аккаунт? <router-link to="/login">Войти</router-link></p>    
     </form>
   </div>
@@ -32,11 +86,16 @@ export default {
   }),
   validations: {
     email: {email, required},
-    password: {required, minLength: minLength(7)}
+    password: {required, minLength: minLength(7)},
+    name: {required}
   },
   methods: {
     submitHandler() {
-
+      if(this.$v.$invalid) {
+        this.$v.$touch()
+        return
+      }
+      this.$router.push('/login')
     },
   },
 }
@@ -81,6 +140,9 @@ h1 {
 .textbox input::placeholder {
   color: #2c3e50;
   opacity: .8;
+}
+.invalid {
+  border-bottom: #c70e0e 1px solid;
 }
 .small-error-text {
   font-size: 12px;
