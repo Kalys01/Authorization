@@ -1,7 +1,7 @@
 <template>
-  <div class="login">
+  <div class="register">
     <form class="login-box" @submit.prevent="submitHandler">
-      <h1 class="login">Register</h1>
+      <h1 class="register">Register</h1>
       <div 
         :class="{invalid: $v.email.$dirty && !$v.email.required}"
         class="textbox"
@@ -69,7 +69,7 @@
       >
         Register
       </button>
-      <p>Уже есть аккаунт? <router-link to="/login">Войти</router-link></p>    
+      <p>Already have an account? <router-link to="/login" class="white-underline-right-to-left">Login</router-link></p>    
     </form>
   </div>
 </template>
@@ -102,8 +102,10 @@ export default {
 </script>
 
 <style scoped>
-.login {
+.register {
   padding: 5px;
+  position: relative;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   /* background: url(../assets/auth.jpg) no-repeat; */
 }
 form .login-box {

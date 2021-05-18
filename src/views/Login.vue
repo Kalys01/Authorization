@@ -9,7 +9,7 @@
         <input
           v-model.trim="email"
           type="email"
-          placeholder="Name"
+          placeholder="Email"
         >
       </div>
       <small
@@ -53,7 +53,7 @@
       >
         Sign in
       </button> 
-      <p>Нет аккаунта? <router-link to="/register">Зарегистрироваться</router-link></p>   
+      <p>No account? <router-link to="/register">Register</router-link></p>
     </form>
   </div>
 </template>
@@ -92,6 +92,7 @@ export default {
 .login {
   padding: 5px;
   min-width: 150px;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   /* background: url(../assets/auth.jpg) no-repeat; */
 }
 form .login-box {
