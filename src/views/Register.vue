@@ -90,12 +90,22 @@ export default {
     name: {required}
   },
   methods: {
-    submitHandler() {
+    async submitHandler() {
       if(this.$v.$invalid) {
         this.$v.$touch()
         return
       }
-      this.$router.push('/login')
+
+      const formData = {
+        name: this.name,
+        email: this.email,
+        password: this.password
+      }
+
+      try {
+        await this.$store.dispatch('registr', formData)
+       // this.$router.push('/login')
+      } catch(e) {}
     },
   },
 }

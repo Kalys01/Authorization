@@ -4,6 +4,7 @@
       <h4 class="black-underline-right-to-left fas"><router-link to="/">CLOSE</router-link></h4>
     </div>
     <div class="corner"></div>
+    <div class="corner2"></div>
     <div class="register-block">  
       <router-view />
     </div>
@@ -37,6 +38,13 @@
 }
 
 .corner {
+  position: absolute;
+	width: 0;
+	height: 0;
+	border-top: 500px solid #000; 
+	border-right: 500px solid transparent;
+}
+.corner2 {
   position: absolute;
   bottom: 0;
   right: 0;
