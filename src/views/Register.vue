@@ -103,8 +103,8 @@ export default {
       }
 
       try {
+        this.$router.push('/login')
         await this.$store.dispatch('register', formData)
-        this.$router.push('/')
       } catch(e) {}
     },
   },
