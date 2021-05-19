@@ -69,7 +69,7 @@
       >
         Register
       </button>
-      <p>Already have an account? <router-link to="/login" class="white-underline-right-to-left">Login</router-link></p>    
+      <p>Already have an account? <router-link to="/login" class="login">Login</router-link></p>    
     </form>
   </div>
 </template>
@@ -151,6 +151,9 @@ h1 {
   color: #c70e0e;
 }
 
+.login {
+  border-bottom: 2px solid #000;
+}
 .btn {
   width: 100%;
   background: none;

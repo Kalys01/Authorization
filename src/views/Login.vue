@@ -53,7 +53,7 @@
       >
         Sign in
       </button> 
-      <p>No account? <router-link to="/register">Register</router-link></p>
+      <p>No account? <router-link to="/register" class="register">Register</router-link></p>
     </form>
   </div>
 </template>
@@ -92,7 +92,8 @@ export default {
 .login {
   padding: 5px;
   min-width: 150px;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: Avenir, Helvetica, Arial, sans-serif; */
+  /* font-family: Bebas, sans-serif; */
   /* background: url(../assets/auth.jpg) no-repeat; */
 }
 form .login-box {
@@ -138,6 +139,9 @@ h1 {
   color: #c70e0e;
 }
 
+.register {
+  border-bottom: 2px solid #000;
+}
 .btn {
   width: 100%;
   background: none;

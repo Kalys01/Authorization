@@ -1,8 +1,9 @@
 <template>
   <div class="register">
     <div class="back">
-      <router-link to="/"><i class="fas fa-long-arrow-alt-right"></i></router-link>
+      <h4 class="black-underline-right-to-left fas"><router-link to="/">CLOSE</router-link></h4>
     </div>
+    <div class="corner"></div>
     <div class="register-block">  
       <router-view />
     </div>
@@ -10,6 +11,10 @@
 </template>
 
 <style scoped>
+.register {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+}
+
 .register-block {
   background: #fff;
   width: 100%;
@@ -25,7 +30,19 @@
   margin: 6px;
 }
 .fas {
-  font-size: 38px;
+  font-weight: 900;
+  text-transform: uppercase;
   color: #000;
+  
+}
+
+.corner {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+	width: 0;
+	height: 0;
+	border-bottom: 500px solid #000; 
+	border-left: 500px solid transparent;
 }
 </style>
