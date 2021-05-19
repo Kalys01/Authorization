@@ -53,4 +53,38 @@
 	border-bottom: 500px solid #000; 
 	border-left: 500px solid transparent;
 }
+
+@media (max-width: 992px) {
+  .corner {
+    border-top: 400px solid #000; 
+	  border-right: 400px solid transparent;
+  }
+
+  .corner2 {
+    border-bottom: 400px solid #000; 
+	  border-left: 400px solid transparent;
+  }
+}
+@media screen and (max-width: 768px) {
+  .corner {
+    border-top: 300px solid #000; 
+	  border-right: 300px solid transparent;
+  }
+
+  .corner2 {
+    border-bottom: 300px solid #000; 
+	  border-left: 300px solid transparent;
+  }
+}
+@media screen and (max-width: 480px) {
+  .corner {
+    border-top: 100px solid #000; 
+	  border-right: 100px solid transparent;
+  }
+
+  .corner2 {
+    border-bottom: 100px solid #000; 
+	  border-left: 100px solid transparent;
+  }
+}
 </style>
