@@ -103,7 +103,7 @@ export default {
       }
 
       try {
-        await this.$store.dispatch('registr', formData)
+        await this.$store.dispatch('register', formData)
        // this.$router.push('/login')
       } catch(e) {}
     },
